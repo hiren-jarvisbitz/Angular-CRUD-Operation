@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Angular CRUD Operation</h1>
 
-    <a href="#" routerLink="/pot/create/" class="btn btn-success">Create New Post</a>
+    <a href="#" routerLink="/post/create/" class="btn btn-success float-right mb-2">Create New Post</a>
 
     <table class="table table-bordered">
         <tr>
@@ -15,8 +15,8 @@
             <td>{{ post.title }}</td>
             <td>{{ post.body }}</td>
             <td>
-                <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-info">View</a>
-                <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-primary">Edit</a>
+                <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-info mr-1">View</a>
+                <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-primary mr-1">Edit</a>
                 <button type="button" (click)="deletePost(post.id)" class="btn btn-danger">Delete</button>
             </td>
         </tr>

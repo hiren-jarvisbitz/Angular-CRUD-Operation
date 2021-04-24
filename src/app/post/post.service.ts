@@ -10,7 +10,9 @@ import { Post } from './post';
   providedIn: 'root'
 })
 export class PostService {
+
   private apiURL = 'https://jsonplaceholder.typicode.com';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -40,13 +42,14 @@ export class PostService {
         );
   }
 
-  update(id: number, post: any): Observable<Post> {
+  update(id: string | number, post: any): Observable<Post> {
     return this.httpClient.put<Post>(this.apiURL + '/posts/' + id, JSON.stringify(post), this.httpOptions)
         .pipe(
             catchError(this.errorHandler)
         );
   }
 
+  // tslint:disable-next-line:typedef
   delete(id: number){
     return this.httpClient.delete<Post>(this.apiURL + '/posts/' + id, this.httpOptions)
         .pipe(
